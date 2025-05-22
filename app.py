@@ -3,11 +3,11 @@ import pickle
 import re
 from sklearn.feature_extraction.text import CountVectorizer
 
-# Load the classifier and vectorizer
-with open('E:/Onedrive/Desktop/seniment/nb_classifier.pkl', 'rb') as classifier_file:
+# Load models with relative paths
+with open('nb_classifier.pkl', 'rb') as classifier_file:
     nb_classifier = pickle.load(classifier_file)
 
-with open('E:/Onedrive/Desktop/seniment/count_vectorizer.pkl', 'rb') as vectorizer_file:
+with open('count_vectorizer.pkl', 'rb') as vectorizer_file:
     count_vectorizer = pickle.load(vectorizer_file)
 
 # Function to clean the input text
@@ -25,7 +25,7 @@ sentiment_mapping = {-1: 'Negative', 0: 'Neutral', 1: 'Positive'}
 def main():
     col1, col2, col3, col4 = st.columns([1, 1, 3, 1])
     with col3:
-        st.image('E:\Onedrive\Desktop\seniment\download.png', width=200)
+        st.image('download.png', width=200)
         st.title("Sentiment Analysis App")
         st.write("Enter a Twitter text below:")
         input_text = st.text_area("Input Text:", "")
